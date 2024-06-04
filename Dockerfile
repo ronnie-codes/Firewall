@@ -1,17 +1,22 @@
-FROM python:3.13-rc-alpine
+# Use Debian-based image
+FROM python:3.12.3-slim-bullseye
 
-# Set PYTHONUNBUFFERED to 1 to ensure unbuffered output
-ENV PYTHONUNBUFFERED=1
+# Install dependencies
+RUN apt-get update && apt-get install -y build-essential iptables
 
-# Set the working directory in the container
 WORKDIR /usr/src/app
 
-# install dependencies
-COPY ./requirements.txt ./
-RUN pip install --no-cache-dir --upgrade -r requirements.txt
-
-# Copy the current directory contents into the container at /usr/src/app
+# Copy source files and requirements
 COPY . .
 
-# start the server
-CMD ["python", "main.py"]
+# Install dependencies
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
+
+# Compile to C
+RUN python build.py build_ext --inplace
+
+# Make the iptables script executable
+RUN chmod +x iptables.sh
+
+# Load tables and run (ensure iptables runs with sufficient privileges)
+CMD ["sh", "-c", "./iptables.sh && python main.py"]

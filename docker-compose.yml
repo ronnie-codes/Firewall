@@ -2,3 +2,10 @@ services:
   app:
     build: .
     container_name: python_app
+    read_only: true
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - type: bind
+        source: /Users/atom/Developer/MyVPN/Firewall/pf.rules
+        target: /usr/src/app/pf.rules
