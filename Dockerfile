@@ -10,7 +10,7 @@ WORKDIR /usr/src/app
 COPY scripts/iptables_legacy.sh .
 COPY src/setup.py .
 COPY src/main.py .
-COPY src/script.py .
+COPY src/Modules/PacketFilter/PacketFilter.py .
 COPY src/requirements.txt .
 
 # Install dependencies

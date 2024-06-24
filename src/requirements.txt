@@ -1,4 +1,4 @@
 dnspython==2.*
 cython==3.*
-# pyarmor==8.5.9
+pyarmor==8.5.9
 typing_extensions==4.11.0

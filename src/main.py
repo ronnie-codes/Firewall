@@ -1,4 +1,4 @@
-from script import PacketFilterService
+from PacketFilter import PacketFilterService
 
 def main():
     """Main"""

@@ -26,6 +26,10 @@ COPY src/main.py .
 COPY src/script.py .
 COPY src/requirements.txt .
 
+# Activate python virtual environment
+RUN python -m venv venv
+RUN source venv/bin/activate
+
 # Install Python dependencies
 RUN pip3.9 install --user -r requirements.txt
 

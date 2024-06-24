@@ -12,7 +12,7 @@ while true; do
     docker run -d \
             --name $container_name \
             --cap-add=NET_ADMIN \
-            --mount type=bind,source=/mnt/shared/config/pf.rules,target=/usr/src/app/pf.rules \
+            --mount type=bind,source=/Users/atom/Developer/MyVPN/Firewall/config/pf.rules,target=/usr/src/app/pf.rules \
             --ip 192.168.63.169 \
             --network ipvlan_network \
         $container_name

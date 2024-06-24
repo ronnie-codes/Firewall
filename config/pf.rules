@@ -60,24 +60,24 @@ alias-gvid-rr3-ab5l6ndy = "rr3---sn-ab5l6ndy.googlevideo.com"
 alias-gvid-rr1-p5qddn7k = "rr1---sn-p5qddn7k.googlevideo.com"
 
 # Tables
-table <gemini.google.com> { 142.251.40.174 }
+table <gemini.google.com> { 142.250.189.142 }
 table <chromeenterprise.google> { 216.239.32.27 }
-table <www.google.com> { 142.251.32.100 }
-table <accounts.google.com> { 172.217.197.84 }
-table <accounts.google.ca> { 74.125.192.94 }
-table <myaccount.google.com> { 173.194.66.84 }
-table <accounts.youtube.com> { 142.250.65.206 }
-table <apis.google.com> { 142.250.81.238 }
-table <lh3.google.com> { 142.250.72.110 }
-table <ogs.google.com> { 142.250.65.206 }
-table <www.gstatic.com> { 142.251.40.99 }
-table <ssl.gstatic.com> { 142.250.72.99 }
-table <lh3.googleusercontent.com> { 142.251.40.225 }
-table <play.google.com> { 142.251.40.174 }
-table <fonts.gstatic.com> { 142.251.35.163 }
-table <workspace.google.com> { 142.251.40.206 }
-table <storage.googleapis.com> { 142.250.176.219, 142.251.32.123, 142.251.35.187, 142.251.40.123, 142.251.40.155, 142.251.40.219, 142.251.40.251, 142.251.41.27, 172.217.165.155, 142.250.65.187, 142.250.65.219, 142.250.65.251, 142.250.80.59, 142.250.80.91, 142.250.80.123, 142.250.81.251 }
-table <www.youtube.com> { 142.250.72.110, 142.250.80.14, 142.250.80.46, 142.250.80.78, 142.250.80.110, 142.250.81.238, 142.250.176.206, 142.251.32.110, 142.251.35.174, 142.251.40.206, 142.251.40.238, 142.251.41.14, 142.250.64.110, 142.250.65.174, 142.250.65.206, 142.250.65.238 }
+table <www.google.com> { 172.217.165.196 }
+table <accounts.google.com> { 173.194.212.84 }
+table <accounts.google.ca> { 74.125.139.94 }
+table <myaccount.google.com> { 74.125.141.84 }
+table <accounts.youtube.com> { 142.250.217.174 }
+table <apis.google.com> { 172.217.3.78 }
+table <lh3.google.com> { 142.250.217.238 }
+table <ogs.google.com> { 142.250.217.174 }
+table <www.gstatic.com> { 192.178.50.35 }
+table <ssl.gstatic.com> { 172.217.3.67 }
+table <lh3.googleusercontent.com> { 142.250.64.161 }
+table <play.google.com> { 172.217.2.206 }
+table <fonts.gstatic.com> { 142.250.189.131 }
+table <workspace.google.com> { 142.250.217.174 }
+table <storage.googleapis.com> { 142.250.189.155, 142.250.217.219, 172.217.3.91, 142.251.35.251, 172.217.15.219, 192.178.50.59, 172.217.165.219, 142.250.64.219, 142.250.217.251, 142.250.217.187, 192.178.50.91 }
+table <www.youtube.com> { 142.250.189.142, 142.250.217.174, 192.178.50.46, 142.250.64.238, 142.250.64.174, 142.250.64.142, 142.250.64.206, 142.250.217.206, 142.251.35.238, 172.217.2.206, 142.250.217.238, 172.217.165.206, 192.178.50.78 }
 table <alias-gvid-ab5l6ndr> { 173.194.185.199 }
 table <alias-gvid-rr4-t0a7lnee> { 74.125.172.41 }
 table <alias-gvid-4g5edn6r> { 74.125.153.199 }
@@ -120,136 +120,136 @@ table <alias-gvid-rr4-ab5l6nrr> { 74.125.172.9 }
 table <alias-gvid-rr2-ab5sznzz> { 74.125.174.39 }
 table <alias-gvid-rr3-ab5l6ndy> { 173.194.185.232 }
 table <alias-gvid-rr1-p5qddn7k> { 173.194.7.134 }
-table <i.ytimg.com> { 142.250.65.214, 142.250.65.246, 142.250.72.118, 142.250.80.54, 142.250.80.86, 142.250.80.118, 142.250.81.246, 142.250.176.214, 142.251.32.118, 142.251.35.182, 142.251.40.118, 142.251.40.150, 142.251.40.182, 142.251.40.214, 142.250.64.86, 142.250.64.118 }
+table <i.ytimg.com> { 142.251.35.246, 142.250.64.214, 142.250.189.150, 142.250.64.150, 142.250.217.182, 172.217.2.214, 142.250.217.214, 142.250.217.246, 192.178.50.54, 172.217.165.214, 172.217.15.214, 192.178.50.86 }
 table <challenges.cloudflare.com> { 104.17.2.184, 104.17.3.184 }
-table <chatgpt.com> { 172.64.155.141, 104.18.32.115 }
-table <chat.openai.com> { 104.18.37.228, 172.64.150.28 }
-table <tcr9i.chat.openai.com> { 13.249.190.26, 13.249.190.27, 13.249.190.115, 13.249.190.127 }
+table <chatgpt.com> { 104.18.32.115, 172.64.155.141 }
+table <chat.openai.com> { 172.64.150.28, 104.18.37.228 }
+table <tcr9i.chat.openai.com> { 3.162.103.16, 3.162.103.91, 3.162.103.112, 3.162.103.5 }
 table <www.oaistatic.com> { 104.18.13.201, 104.18.12.201 }
-table <cdn.oaistatic.com> { 104.18.12.201, 104.18.13.201 }
+table <cdn.oaistatic.com> { 104.18.13.201, 104.18.12.201 }
 table <auth.openai.com> { 172.64.146.15, 104.18.41.241 }
-table <auth0.openai.com> { 104.18.35.28, 172.64.152.228 }
-table <www.github.com> { 140.82.113.4 }
-table <github.com> { 140.82.113.4 }
-table <github.githubassets.com> { 185.199.108.154, 185.199.109.154, 185.199.110.154, 185.199.111.154 }
-table <api.github.com> { 140.82.114.6 }
-table <objects.githubusercontent.com> { 185.199.109.133, 185.199.110.133, 185.199.111.133, 185.199.108.133 }
-table <raw.githubusercontent.com> { 185.199.110.133, 185.199.111.133, 185.199.108.133, 185.199.109.133 }
-table <raw.github.com> { 185.199.109.133, 185.199.110.133, 185.199.111.133, 185.199.108.133 }
-table <mail.google.com> { 142.251.40.165 }
-table <admin.google.com> { 142.251.35.174 }
-table <www.amazon.com> { 108.138.127.202 }
-table <amzn.to> { 67.199.248.12, 67.199.248.13 }
-table <d1nruqhae353qc.cloudfront.net> { 18.161.30.183, 18.161.30.9, 18.161.30.36, 18.161.30.66 }
-table <d161vkckch5xxj.cloudfront.net> { 108.138.125.206, 108.138.125.60, 108.138.125.162, 108.138.125.187 }
-table <d1lxz4vuik53pc.cloudfront.net> { 18.239.176.25, 18.239.176.57, 18.239.176.108, 18.239.176.129 }
-table <d39x00gckxu2jb.cloudfront.net> { 18.239.176.169, 18.239.176.196, 18.239.176.200, 18.239.176.225 }
-table <docs.google.com> { 142.250.80.46 }
-table <www.obdev.at> { 167.235.211.211 }
+table <auth0.openai.com> { 172.64.152.228, 104.18.35.28 }
+table <www.github.com> { 140.82.113.3 }
+table <github.com> { 140.82.113.3 }
+table <github.githubassets.com> { 185.199.110.154, 185.199.108.154, 185.199.109.154, 185.199.111.154 }
+table <api.github.com> { 140.82.114.5 }
+table <objects.githubusercontent.com> { 185.199.111.133, 185.199.109.133, 185.199.108.133, 185.199.110.133 }
+table <raw.githubusercontent.com> { 185.199.108.133, 185.199.109.133, 185.199.110.133, 185.199.111.133 }
+table <raw.github.com> { 185.199.111.133, 185.199.109.133, 185.199.108.133, 185.199.110.133 }
+table <mail.google.com> { 142.250.217.197 }
+table <admin.google.com> { 142.250.64.206 }
+table <www.amazon.com> { 92.249.37.12 }
+table <amzn.to> { 67.199.248.13, 67.199.248.12 }
+table <d1nruqhae353qc.cloudfront.net> { 54.239.153.131, 54.239.153.108, 54.239.153.54, 54.239.153.230 }
+table <d161vkckch5xxj.cloudfront.net> { 13.249.46.40, 13.249.46.158, 13.249.46.142, 13.249.46.189 }
+table <d1lxz4vuik53pc.cloudfront.net> { 127.0.0.1 }
+table <d39x00gckxu2jb.cloudfront.net> { 3.162.130.178, 3.162.130.8, 3.162.130.82, 3.162.130.120 }
+table <docs.google.com> { 142.250.189.142 }
+table <www.obdev.at> {  }
 table <sw-update.obdev.at> { 167.235.211.213 }
-table <www.geeksforgeeks.org> { 18.164.124.78, 18.164.124.35, 18.164.124.46, 18.164.124.56 }
+table <www.geeksforgeeks.org> { 108.138.64.13, 108.138.64.52, 108.138.64.101, 108.138.64.6 }
 table <www.docker.com> { 141.193.213.20, 141.193.213.21 }
-table <hub.docker.com> { 44.219.3.189, 3.224.227.198, 44.193.181.103 }
-table <docs.docker.com> { 108.138.128.112, 108.138.128.21, 108.138.128.29, 108.138.128.74 }
-table <registry-1.docker.io> { 54.196.99.49, 3.219.239.5, 34.226.69.105 }
+table <hub.docker.com> { 3.224.227.198, 44.193.181.103, 44.219.3.189 }
+table <docs.docker.com> { 18.160.10.92, 18.160.10.27, 18.160.10.58, 18.160.10.89 }
+table <registry-1.docker.io> { 3.219.239.5, 54.196.99.49, 34.226.69.105 }
 table <www.okta.com> { 104.18.212.105, 104.18.211.105 }
 table <developer.okta.co> { 3.33.139.32 }
-table <login.okta.com> { 18.173.219.121, 18.173.219.23, 18.173.219.82, 18.173.219.112 }
+table <login.okta.com> { 18.160.10.16, 18.160.10.110, 18.160.10.3, 18.160.10.88 }
 table <trial-7557751.okta.com> { 76.223.94.4, 13.248.212.212 }
-table <trial-7557751-admin.okta.com> { 76.223.94.4, 13.248.212.212 }
-table <ok14static.oktacdn.com> { 13.35.93.66, 13.35.93.102, 13.35.93.29, 13.35.93.59 }
-table <ok3static.oktacdn.com> { 65.8.19.44, 65.8.19.59, 65.8.19.66, 65.8.19.28 }
-table <oinmanager.okta.com> { 3.233.93.236, 18.213.191.122, 54.87.109.113 }
-table <system-admin.okta.com> { 99.83.144.240, 75.2.8.118 }
+table <trial-7557751-admin.okta.com> { 13.248.212.212, 76.223.94.4 }
+table <ok14static.oktacdn.com> { 18.67.76.89, 18.67.76.11, 18.67.76.63, 18.67.76.122 }
+table <ok3static.oktacdn.com> { 18.154.227.67, 18.154.227.20, 18.154.227.22, 18.154.227.45 }
+table <oinmanager.okta.com> { 18.213.191.122, 3.233.93.236, 54.87.109.113 }
+table <system-admin.okta.com> { 75.2.8.118, 99.83.144.240 }
 table <data.pendo.io> { 34.107.204.85 }
-table <www.reddit.com> { 151.101.1.140, 151.101.65.140, 151.101.129.140, 151.101.193.140 }
-table <www.redditstatic.com> { 151.101.129.140, 151.101.193.140, 151.101.1.140, 151.101.65.140 }
-table <www.redditstatic.com> { 151.101.65.140, 151.101.1.140, 151.101.193.140, 151.101.129.140 }
-table <m.media-amazon.com> { 18.161.24.171 }
-table <images-na.ssl-images-amazon.com> { 18.239.159.227 }
+table <www.reddit.com> { 31.169.123.46 }
+table <www.redditstatic.com> { 151.101.53.140 }
+table <www.redditstatic.com> { 151.101.53.140 }
+table <m.media-amazon.com> { 92.249.37.12 }
+table <images-na.ssl-images-amazon.com> { 92.249.37.12 }
 table <en.wikipedia.org> { 208.80.154.224 }
 table <www.overleaf.com> { 34.120.52.64 }
-table <resumeworded.com> { 104.26.2.28, 104.26.3.28, 172.67.74.248 }
-table <www.topresume.com> { 65.8.19.13, 65.8.19.15, 65.8.19.48, 65.8.19.53 }
-table <customers.topresume.com> { 52.200.238.128, 3.213.52.188, 3.230.238.193, 3.232.130.58, 18.209.140.248, 44.196.154.46 }
-table <content.topresume.com> { 18.238.80.92, 18.238.80.93, 18.238.80.41, 18.238.80.46 }
-table <topresume.portal.careers> { 18.213.74.173, 18.209.133.42 }
-table <d3ckaa7n9upjlc.cloudfront.net> { 18.239.166.16, 18.239.166.78, 18.239.166.188, 18.239.166.190 }
-table <www.cisco.com> { 23.32.144.111 }
-table <software.cisco.com> { 104.67.11.141 }
-table <id.cisco.com> { 184.25.117.152, 184.25.117.226 }
-table <download-ssc.cisco.com> { 23.44.209.199 }
-table <homenetworkguy.com> { 172.67.73.58, 104.26.0.51, 104.26.1.51 }
-table <help.okta.com> { 18.173.219.67, 18.173.219.79, 18.173.219.119, 18.173.219.123 }
-table <developers.google.com> { 142.251.40.142 }
+table <resumeworded.com> { 172.67.74.248, 104.26.3.28, 104.26.2.28 }
+table <www.topresume.com> { 18.67.76.69, 18.67.76.106, 18.67.76.23, 18.67.76.87 }
+table <customers.topresume.com> { 44.196.154.46, 3.213.52.188, 3.230.238.193, 3.232.130.58, 18.209.140.248, 52.200.238.128 }
+table <content.topresume.com> { 108.138.85.32, 108.138.85.57, 108.138.85.55, 108.138.85.103 }
+table <topresume.portal.careers> { 18.209.133.42, 18.204.135.95 }
+table <d3ckaa7n9upjlc.cloudfront.net> { 108.138.82.182, 108.138.82.110, 108.138.82.138, 108.138.82.160 }
+table <www.cisco.com> { 23.35.204.110 }
+table <software.cisco.com> { 96.7.193.12 }
+table <id.cisco.com> { 23.50.113.166, 23.50.113.154 }
+table <download-ssc.cisco.com> { 23.194.226.209 }
+table <homenetworkguy.com> { 104.26.0.51, 172.67.73.58, 104.26.1.51 }
+table <help.okta.com> { 18.67.76.114, 18.67.76.7, 18.67.76.69, 18.67.76.92 }
+table <developers.google.com> { 192.178.50.46 }
 table <docs.opnsense.org> { 178.162.131.118 }
 table <forum.opnsense.org> { 178.162.131.118 }
-table <gcr.io> { 173.194.68.82 }
-table <www.recaptcha.net> { 142.251.40.227 }
-table <metana.io> { 172.67.71.169, 104.26.0.159, 104.26.1.159 }
-table <www.coursera.org> { 65.8.19.50, 65.8.19.76, 65.8.19.109, 65.8.19.40 }
-table <845coursera.boost.ai> { 76.223.57.223, 13.248.171.59 }
-table <g-us-east-1.gp.coursera.org> { 3.212.141.174, 44.194.104.209 }
-table <alias-coursera-rhyme> { 52.217.120.250, 54.231.232.226, 16.182.41.74, 52.216.57.66, 52.216.88.134, 52.216.244.56, 52.217.88.80, 52.217.95.130 }
-table <alias-coursera-skillspace> { 18.161.34.74, 18.161.34.103, 18.161.34.118, 18.161.34.38 }
-table <d3njjcbhbojbot.cloudfront.net> { 18.164.116.65, 18.164.116.87, 18.164.116.104, 18.164.116.17 }
-table <d3c33hcgiwev3.cloudfront.net> { 54.230.244.38, 54.230.244.133, 54.230.244.134, 54.230.244.213 }
-table <sockjs-mt1.pusher.com> { 52.55.106.120, 34.201.239.212, 44.217.82.191 }
-table <api2.transloadit.com> { 3.95.74.143, 3.95.88.141, 18.235.240.52, 34.195.85.156, 3.94.12.70, 3.94.234.75 }
-table <www.khanacademy.org> { 151.101.129.42, 151.101.193.42, 151.101.1.42, 151.101.65.42 }
-table <www.virtualbox.org> { 104.69.60.227 }
-table <leetcode.com> { 172.67.6.3, 104.22.26.181, 104.22.27.181 }
+table <gcr.io> { 173.194.77.82 }
+table <www.recaptcha.net> { 142.250.64.227 }
+table <metana.io> { 172.67.71.169, 104.26.1.159, 104.26.0.159 }
+table <www.coursera.org> { 13.249.39.78, 13.249.39.8, 13.249.39.98, 13.249.39.95 }
+table <845coursera.boost.ai> { 13.248.171.59, 76.223.57.223 }
+table <g-us-east-1.gp.coursera.org> { 52.86.248.62, 3.218.174.205 }
+table <alias-coursera-rhyme> { 52.216.108.110, 54.231.162.90, 16.182.67.138, 52.216.86.190, 54.231.235.58, 54.231.169.74, 52.217.120.106, 52.216.86.142 }
+table <alias-coursera-skillspace> { 99.84.108.109, 99.84.108.117, 99.84.108.81, 99.84.108.82 }
+table <d3njjcbhbojbot.cloudfront.net> { 13.32.208.117, 13.32.208.60, 13.32.208.15, 13.32.208.72 }
+table <d3c33hcgiwev3.cloudfront.net> { 3.162.115.137, 3.162.115.53, 3.162.115.191, 3.162.115.172 }
+table <sockjs-mt1.pusher.com> { 44.217.82.191, 34.201.239.212, 52.55.106.120 }
+table <api2.transloadit.com> { 3.95.88.141, 3.94.234.75, 34.195.85.156, 3.94.12.70, 3.95.74.143, 18.235.240.52 }
+table <www.khanacademy.org> { 151.101.17.42 }
+table <www.virtualbox.org> { 23.44.88.212 }
+table <leetcode.com> { 104.22.26.181, 104.22.27.181, 172.67.6.3 }
 table <assets.leetcode.com> { 104.22.27.181, 172.67.6.3, 104.22.26.181 }
-table <ff-proxy.leetcode.com> { 104.22.26.181, 104.22.27.181, 172.67.6.3 }
-table <kaze.leetcode.com> { 172.67.6.3, 104.22.26.181, 104.22.27.181 }
-table <static-lccn.leetcode.com> { 104.22.26.181, 104.22.27.181, 172.67.6.3 }
-table <s3-lc-upload.s3.amazonaws.com> { 52.219.121.73, 52.219.194.65, 52.219.194.105, 52.219.216.1, 52.219.113.26, 52.219.113.34, 52.219.113.129, 52.219.121.33 }
+table <ff-proxy.leetcode.com> { 104.22.26.181, 172.67.6.3, 104.22.27.181 }
+table <kaze.leetcode.com> { 104.22.27.181, 172.67.6.3, 104.22.26.181 }
+table <static-lccn.leetcode.com> { 104.22.26.181, 172.67.6.3, 104.22.27.181 }
+table <s3-lc-upload.s3.amazonaws.com> { 52.219.120.122, 52.219.220.97, 52.219.120.2, 52.219.120.162, 52.219.193.73, 52.219.121.97, 52.219.120.194, 52.219.120.66 }
 table <player.vimeo.com> { 162.159.128.61, 162.159.138.60 }
-table <extend.vimeocdn.com> { 199.232.38.109 }
-table <f.vimeocdn.com> { 151.101.118.109 }
-table <i.vimeocdn.com> { 151.101.64.217, 151.101.128.217, 151.101.192.217, 151.101.0.217 }
+table <extend.vimeocdn.com> { 146.75.86.109 }
+table <f.vimeocdn.com> { 146.75.86.109 }
+table <i.vimeocdn.com> { 146.75.84.217 }
 table <fresnel.vimeocdn.com> { 34.120.202.204 }
-table <skyfire.vimeocdn.com> { 151.101.64.217, 151.101.128.217, 151.101.192.217, 151.101.0.217 }
-table <www.netacad.com> { 104.69.61.227 }
-table <auth.netacad.com> { 52.71.96.97, 54.87.42.237 }
-table <skillsforall.com> { 65.8.19.55, 65.8.19.107, 65.8.19.7, 65.8.19.8 }
+table <skyfire.vimeocdn.com> { 146.75.84.217 }
+table <www.netacad.com> { 23.34.203.18 }
+table <auth.netacad.com> { 52.71.96.97, 3.209.22.199 }
+table <skillsforall.com> { 3.162.103.98, 3.162.103.28, 3.162.103.46, 3.162.103.51 }
 table <api.socialgoodplatform.com> { 54.172.201.59, 54.172.234.153, 52.54.253.37 }
-table <players.brightcove.net> { 23.41.169.34 }
-table <dj5ag5n6bpdxo.cloudfront.net> { 65.8.191.176, 65.8.191.194, 65.8.191.13, 65.8.191.93 }
-table <alias-packettracer-dl> { 52.217.101.204, 54.231.137.41, 3.5.3.11, 16.182.71.105, 52.216.27.84, 52.216.28.132, 52.216.216.41, 52.217.91.201 }
+table <players.brightcove.net> { 23.204.77.29 }
+table <dj5ag5n6bpdxo.cloudfront.net> { 18.154.230.164, 18.154.230.56, 18.154.230.64, 18.154.230.214 }
+table <alias-packettracer-dl> { 52.217.167.129, 54.231.137.73, 16.182.66.121, 3.5.25.104, 3.5.30.230, 3.5.29.38, 54.231.198.193, 52.216.222.17 }
 table <webexapis.com> { 170.72.245.169, 170.72.245.220, 170.72.245.124 }
 table <pyarmor.readthedocs.io> { 104.16.253.120, 104.16.254.120 }
-table <order.mycommerce.com> { 45.60.103.126 }
-table <fedoraproject.org> { 152.19.134.198, 8.43.85.67, 8.43.85.73, 34.221.3.152, 38.145.60.20, 38.145.60.21, 67.219.144.68, 140.211.169.196, 152.19.134.142 }
-table <docs.fedoraproject.org> { 18.133.140.134, 18.159.254.57, 18.192.40.85, 38.145.60.20, 38.145.60.21, 85.236.55.6, 152.19.134.142, 152.19.134.198, 185.141.165.254 }
-table <download.fedoraproject.org> { 85.236.55.6, 152.19.134.142, 152.19.134.198, 185.141.165.254, 18.133.140.134, 18.159.254.57, 18.192.40.85, 38.145.60.20, 38.145.60.21 }
+table <order.mycommerce.com> { 45.60.31.126 }
+table <fedoraproject.org> { 18.133.140.134, 38.145.60.21, 185.141.165.254, 152.19.134.142, 38.145.60.20, 18.192.40.85, 18.159.254.57, 85.236.55.6, 152.19.134.198 }
+table <docs.fedoraproject.org> { 152.19.134.142, 18.159.254.57, 38.145.60.20, 18.192.40.85, 18.133.140.134, 85.236.55.6, 38.145.60.21, 152.19.134.198, 185.141.165.254 }
+table <download.fedoraproject.org> { 85.236.55.6, 18.192.40.85, 152.19.134.142, 185.141.165.254, 18.159.254.57, 38.145.60.21, 38.145.60.20, 18.133.140.134, 152.19.134.198 }
 table <discussion.fedoraproject.org> { 184.105.99.43 }
-table <sea1.discourse-cdn.com> { 65.8.19.31, 65.8.19.78, 65.8.19.109, 65.8.19.110 }
+table <sea1.discourse-cdn.com> { 13.249.39.74, 13.249.39.67, 13.249.39.40, 13.249.39.96 }
 table <www.flatcar.org> { 104.21.66.122, 172.67.159.230 }
 table <flatcar-linux.org> { 172.67.163.250, 104.21.91.4 }
 table <alias-flatcar-release> { 136.144.58.113 }
 table <routersecurity.org> { 216.92.136.14 }
 table <www.linkedin.com> { 13.107.42.14 }
-table <platform.linkedin.com> { 23.200.3.77, 23.200.3.68 }
-table <static.licdn.com> { 23.200.3.68, 23.200.3.77 }
-table <static-exp1.licdn.com> { 23.200.3.77, 23.200.3.68 }
-table <linkedin-api.arkoselabs.com> { 13.35.77.103, 13.35.77.116, 13.35.77.17, 13.35.77.89 }
+table <platform.linkedin.com> { 127.0.0.1 }
+table <static.licdn.com> { 152.199.24.163 }
+table <static-exp1.licdn.com> { 152.199.24.163 }
+table <linkedin-api.arkoselabs.com> { 99.84.191.108, 99.84.191.4, 99.84.191.17, 99.84.191.74 }
 table <rpmfusion.org> { 212.129.31.198 }
 table <pimylifeup.com> { 172.67.73.232, 104.26.4.41, 104.26.5.41 }
 table <pve.proxmox.com> { 79.133.36.252 }
 table <mirrors.apqa.cn> { 104.21.43.231, 172.67.186.225 }
 table <vmware.com> { 208.91.0.132 }
-table <blogs.vmware.com> { 23.32.144.34 }
-table <docs.vmware.com> { 23.32.144.34 }
-table <customerconnect.vmware.com> { 23.32.144.34 }
-table <broadcom.com> { 54.68.22.26, 50.112.202.115, 52.13.171.212 }
+table <blogs.vmware.com> { 23.35.204.34 }
+table <docs.vmware.com> { 23.35.204.34 }
+table <customerconnect.vmware.com> { 23.35.204.34 }
+table <broadcom.com> { 52.13.171.212, 50.112.202.115, 54.68.22.26 }
 table <support.broadcom.com> { 162.159.140.167, 172.66.0.165 }
-table <access.broadcom.com> { 172.66.0.165, 162.159.140.167 }
-table <community.broadcom.com> { 34.225.242.50, 34.193.4.92 }
+table <access.broadcom.com> { 162.159.140.167, 172.66.0.165 }
+table <community.broadcom.com> { 34.193.4.92, 34.225.242.50 }
 table <login.broadcom.com> { 35.71.190.245, 52.223.7.86 }
-table <d3axvq2tzp21o5.cloudfront.net> { 18.164.93.31, 18.164.93.33, 18.164.93.34, 18.164.93.74 }
-table <groups.google.com> { 173.194.68.138, 173.194.68.139, 173.194.68.100, 173.194.68.101, 173.194.68.102, 173.194.68.113 }
-table <linuxboards.com> { 172.67.211.144, 104.21.67.23 }
+table <d3axvq2tzp21o5.cloudfront.net> { 18.160.37.175, 18.160.37.77, 18.160.37.49, 18.160.37.56 }
+table <groups.google.com> { 216.239.38.177, 216.239.34.177, 216.239.32.177, 216.239.36.177 }
+table <linuxboards.com> { 104.21.67.23, 172.67.211.144 }
 table <copr.fedorainfracloud.org> { 3.225.109.36 }
 table <forums.fedoraforum.org> { 135.148.120.73 }
 table <mirror.xenyth.net> { 170.39.230.155 }
@@ -491,7 +491,7 @@ pass out quick on en0 inet proto tcp from $my_ip to <auth.openai.com> port 443
 pass out quick on en0 inet proto tcp from $my_ip to <auth0.openai.com> port 443
 
 # github
-pass out quick on en0 inet proto tcp from $my_ip to <www.github.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <www.github.com> port { 22, 443 }
 pass out quick on en0 inet proto tcp from $my_ip to <github.com> port 443
 pass out quick on en0 inet proto tcp from $my_ip to <github.githubassets.com> port 443
 pass out quick on en0 inet proto tcp from $my_ip to <api.github.com> port 443
