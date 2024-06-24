@@ -1,22 +1,25 @@
-# Use Debian-based image
-FROM python:3.12.3-slim-bullseye
+FROM python:3.9.19-alpine3.20
 
 # Install dependencies
-RUN apt-get update && apt-get install -y build-essential iptables
+RUN apk add --no-cache build-base iptables iptables-legacy
 
+# Create project directory and switch to it
 WORKDIR /usr/src/app
 
 # Copy source files and requirements
-COPY . .
+COPY scripts/iptables_legacy.sh .
+COPY src/setup.py .
+COPY src/main.py .
+COPY src/script.py .
+COPY src/requirements.txt .
 
 # Install dependencies
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
 # Compile to C
-RUN python build.py build_ext --inplace
+RUN python setup.py build_ext --inplace
 
-# Make the iptables script executable
-RUN chmod +x iptables.sh
+RUN chmod 777 iptables_legacy.sh
 
 # Load tables and run (ensure iptables runs with sufficient privileges)
-CMD ["sh", "-c", "./iptables.sh && python main.py"]
+CMD ["sh", "-c", "./iptables_legacy.sh && python main.py"]

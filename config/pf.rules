@@ -1,0 +1,507 @@
+my_ip = "192.168.63.168"
+
+# Options
+set block-policy drop
+
+# Normalization
+scrub all fragment reassemble no-df
+
+# Queueing (if any)
+
+# Translation
+nat on en0 from any to any -> (en0)
+
+# Aliases
+alias-packettracer-dl = "sgp-ui-components.s3.amazonaws.com"
+alias-flatcar-release = "stable.release.flatcar-linux.net"
+alias-coursera-rhyme = "rhyme-production-v1-us-east-1-common-skillspace.s3.us-east-1.amazonaws.com"
+alias-coursera-skillspace = "production-common-skillspace.gp.coursera.org"
+alias-gvid-ab5l6ndr = "rr2---sn-ab5l6ndr.googlevideo.com"
+alias-gvid-rr4-t0a7lnee = "rr4---sn-t0a7lnee.googlevideo.com"
+alias-gvid-rr5-t0a7lnee = "rr5---sn-t0a7lnee.googlevideo.com"
+alias-gvid-4g5edn6r = "rr2---sn-4g5edn6r.googlevideo.com"
+alias-gvid-tt1elnel = "rr2---sn-tt1elnel.googlevideo.com"
+alias-gvid-rr1-5hne6nzd = "rr1---sn-5hne6nzd.googlevideo.com"
+alias-gvid-rr2-5hne6nz6 = "rr2---sn-5hne6nz6.googlevideo.com"
+alias-gvid-rr2-5hnekn7z = "rr2---sn-5hnekn7z.googlevideo.com"
+alias-gvid-rr1-5hneknes = "rr1---sn-5hneknes.googlevideo.com"
+alias-gvid-rr5-5hne6n6e = "rr5---sn-5hne6n6e.googlevideo.com"
+alias-gvid-rr1-ab5sznze = "rr1---sn-ab5sznze.googlevideo.com"
+alias-gvid-rr2-ab5l6nkd = "rr2---sn-ab5l6nkd.googlevideo.com"
+alias-gvid-rr4-p5qs7nsk = "rr4---sn-p5qs7nsk.googlevideo.com"
+alias-gvid-rr2-4g5edndk = "rr2---sn-4g5edndk.googlevideo.com"
+alias-gvid-rr1-5hne6nsr = "rr1---sn-5hne6nsr.googlevideo.com"
+alias-gvid-rr1-5hnekn7s = "rr1---sn-5hnekn7s.googlevideo.com"
+alias-gvid-rr4-4g5e6nss = "rr4---sn-4g5e6nss.googlevideo.com"
+alias-gvid-rr1--ab5sznzy = "rr1---sn-ab5sznzy.googlevideo.com"
+alias-gvid-rr5-ab5l6ndr = "rr5---sn-ab5l6ndr.googlevideo.com"
+alias-gvid-rr3-p5qddn7d = "rr3---sn-p5qddn7d.googlevideo.com"
+alias-gvid-rr5-ab5sznzd = "rr5---sn-ab5sznzd.googlevideo.com"
+alias-gvid-rr4-ab5l6nrl = "rr4---sn-ab5l6nrl.googlevideo.com"
+alias-gvid-rr4-p5qlsndz = "rr4---sn-p5qlsndz.googlevideo.com"
+alias-gvid-rr2-ab5l6nrl = "rr2---sn-ab5l6nrl.googlevideo.com"
+alias-gvid-rr1-ab5sznzk = "rr1---sn-ab5sznzk.googlevideo.com"
+alias-gvid-rr1-ab5sznzz = "rr1---sn-ab5sznzz.googlevideo.com"
+alias-gvid-rr3-ab5l6nr6 = "rr3---sn-ab5l6nr6.googlevideo.com"
+alias-gvid-rr3-p5qlsn7s = "rr3---sn-p5qlsn7s.googlevideo.com"
+alias-gvid-rr1-p5qddn7r = "rr1---sn-p5qddn7r.googlevideo.com"
+alias-gvid-rr4-ab5sznzr = "rr4---sn-ab5sznzr.googlevideo.com"
+alias-gvid-rr3-ab5l6nkd = "rr3---sn-ab5l6nkd.googlevideo.com"
+alias-gvid-rr2-p5qlsn6l = "rr2---sn-p5qlsn6l.googlevideo.com"
+alias-gvid-rr4-ab5sznzk = "rr4---sn-ab5sznzk.googlevideo.com"
+alias-gvid-rr4-p5qddn76 = "rr4---sn-p5qddn76.googlevideo.com"
+alias-gvid-rr5-p5qddn7d = "rr5---sn-p5qddn7d.googlevideo.com"
+alias-gvid-rr2-ab5l6nrz = "rr2---sn-ab5l6nrz.googlevideo.com"
+alias-gvid-rr5-ab5l6nr6 = "rr5---sn-ab5l6nr6.googlevideo.com"
+alias-gvid-rr3-t0a7lnee = "rr3---sn-t0a7lnee.googlevideo.com"
+alias-gvid-rr4-ab5l6nrr = "rr4---sn-ab5l6nrr.googlevideo.com"
+alias-gvid-rr2-ab5sznzz = "rr2---sn-ab5sznzz.googlevideo.com"
+alias-gvid-rr3-ab5l6ndy = "rr3---sn-ab5l6ndy.googlevideo.com"
+alias-gvid-rr1-p5qddn7k = "rr1---sn-p5qddn7k.googlevideo.com"
+
+# Tables
+table <gemini.google.com> { 142.251.40.174 }
+table <chromeenterprise.google> { 216.239.32.27 }
+table <www.google.com> { 142.251.32.100 }
+table <accounts.google.com> { 172.217.197.84 }
+table <accounts.google.ca> { 74.125.192.94 }
+table <myaccount.google.com> { 173.194.66.84 }
+table <accounts.youtube.com> { 142.250.65.206 }
+table <apis.google.com> { 142.250.81.238 }
+table <lh3.google.com> { 142.250.72.110 }
+table <ogs.google.com> { 142.250.65.206 }
+table <www.gstatic.com> { 142.251.40.99 }
+table <ssl.gstatic.com> { 142.250.72.99 }
+table <lh3.googleusercontent.com> { 142.251.40.225 }
+table <play.google.com> { 142.251.40.174 }
+table <fonts.gstatic.com> { 142.251.35.163 }
+table <workspace.google.com> { 142.251.40.206 }
+table <storage.googleapis.com> { 142.250.176.219, 142.251.32.123, 142.251.35.187, 142.251.40.123, 142.251.40.155, 142.251.40.219, 142.251.40.251, 142.251.41.27, 172.217.165.155, 142.250.65.187, 142.250.65.219, 142.250.65.251, 142.250.80.59, 142.250.80.91, 142.250.80.123, 142.250.81.251 }
+table <www.youtube.com> { 142.250.72.110, 142.250.80.14, 142.250.80.46, 142.250.80.78, 142.250.80.110, 142.250.81.238, 142.250.176.206, 142.251.32.110, 142.251.35.174, 142.251.40.206, 142.251.40.238, 142.251.41.14, 142.250.64.110, 142.250.65.174, 142.250.65.206, 142.250.65.238 }
+table <alias-gvid-ab5l6ndr> { 173.194.185.199 }
+table <alias-gvid-rr4-t0a7lnee> { 74.125.172.41 }
+table <alias-gvid-4g5edn6r> { 74.125.153.199 }
+table <alias-gvid-tt1elnel> { 74.125.0.7 }
+table <alias-gvid-rr5-t0a7lnee> { 74.125.172.42 }
+table <alias-gvid-rr1-5hne6nzd> { 74.125.100.230 }
+table <alias-gvid-rr2-5hne6nz6> { 74.125.100.199 }
+table <alias-gvid-rr2-5hnekn7z> { 74.125.100.103 }
+table <alias-gvid-rr1-5hneknes> { 74.125.8.198 }
+table <alias-gvid-rr5-5hne6n6e> { 172.217.132.234 }
+table <alias-gvid-rr1-ab5sznze> { 74.125.172.198 }
+table <alias-gvid-rr2-ab5l6nkd> { 74.125.0.167 }
+table <alias-gvid-rr4-p5qs7nsk> { 74.125.155.137 }
+table <alias-gvid-rr2-4g5edndk> { 172.217.133.199 }
+table <alias-gvid-rr1-5hne6nsr> { 172.217.132.70 }
+table <alias-gvid-rr1-5hnekn7s> { 74.125.100.38 }
+table <alias-gvid-rr4-4g5e6nss> { 173.194.182.201 }
+table <alias-gvid-rr1--ab5sznzy> { 74.125.174.134 }
+table <alias-gvid-rr5-ab5l6ndr> { 173.194.185.202 }
+table <alias-gvid-rr3-p5qddn7d> { 173.194.7.72 }
+table <alias-gvid-rr5-ab5sznzd> { 74.125.174.106 }
+table <alias-gvid-rr4-ab5l6nrl> { 74.125.172.73 }
+table <alias-gvid-rr4-p5qlsndz> { 173.194.184.169 }
+table <alias-gvid-rr2-ab5l6nrl> { 74.125.172.71 }
+table <alias-gvid-rr1-ab5sznzk> { 173.194.31.134 }
+table <alias-gvid-rr1-ab5sznzz> { 74.125.174.38 }
+table <alias-gvid-rr3-ab5l6nr6> { 74.125.172.168 }
+table <alias-gvid-rr3-p5qlsn7s> { 172.217.135.168 }
+table <alias-gvid-rr1-p5qddn7r> { 173.194.7.166 }
+table <alias-gvid-rr4-ab5sznzr> { 173.194.31.201 }
+table <alias-gvid-rr3-ab5l6nkd> { 74.125.0.168 }
+table <alias-gvid-rr2-p5qlsn6l> { 173.194.7.231 }
+table <alias-gvid-rr4-ab5sznzk> { 173.194.31.137 }
+table <alias-gvid-rr4-p5qddn76> { 173.194.7.41 }
+table <alias-gvid-rr5-p5qddn7d> { 173.194.7.74 }
+table <alias-gvid-rr2-ab5l6nrz> { 74.125.172.135 }
+table <alias-gvid-rr5-ab5l6nr6> { 74.125.172.170 }
+table <alias-gvid-rr3-t0a7lnee> { 74.125.172.40 }
+table <alias-gvid-rr4-ab5l6nrr> { 74.125.172.9 }
+table <alias-gvid-rr2-ab5sznzz> { 74.125.174.39 }
+table <alias-gvid-rr3-ab5l6ndy> { 173.194.185.232 }
+table <alias-gvid-rr1-p5qddn7k> { 173.194.7.134 }
+table <i.ytimg.com> { 142.250.65.214, 142.250.65.246, 142.250.72.118, 142.250.80.54, 142.250.80.86, 142.250.80.118, 142.250.81.246, 142.250.176.214, 142.251.32.118, 142.251.35.182, 142.251.40.118, 142.251.40.150, 142.251.40.182, 142.251.40.214, 142.250.64.86, 142.250.64.118 }
+table <challenges.cloudflare.com> { 104.17.2.184, 104.17.3.184 }
+table <chatgpt.com> { 172.64.155.141, 104.18.32.115 }
+table <chat.openai.com> { 104.18.37.228, 172.64.150.28 }
+table <tcr9i.chat.openai.com> { 13.249.190.26, 13.249.190.27, 13.249.190.115, 13.249.190.127 }
+table <www.oaistatic.com> { 104.18.13.201, 104.18.12.201 }
+table <cdn.oaistatic.com> { 104.18.12.201, 104.18.13.201 }
+table <auth.openai.com> { 172.64.146.15, 104.18.41.241 }
+table <auth0.openai.com> { 104.18.35.28, 172.64.152.228 }
+table <www.github.com> { 140.82.113.4 }
+table <github.com> { 140.82.113.4 }
+table <github.githubassets.com> { 185.199.108.154, 185.199.109.154, 185.199.110.154, 185.199.111.154 }
+table <api.github.com> { 140.82.114.6 }
+table <objects.githubusercontent.com> { 185.199.109.133, 185.199.110.133, 185.199.111.133, 185.199.108.133 }
+table <raw.githubusercontent.com> { 185.199.110.133, 185.199.111.133, 185.199.108.133, 185.199.109.133 }
+table <raw.github.com> { 185.199.109.133, 185.199.110.133, 185.199.111.133, 185.199.108.133 }
+table <mail.google.com> { 142.251.40.165 }
+table <admin.google.com> { 142.251.35.174 }
+table <www.amazon.com> { 108.138.127.202 }
+table <amzn.to> { 67.199.248.12, 67.199.248.13 }
+table <d1nruqhae353qc.cloudfront.net> { 18.161.30.183, 18.161.30.9, 18.161.30.36, 18.161.30.66 }
+table <d161vkckch5xxj.cloudfront.net> { 108.138.125.206, 108.138.125.60, 108.138.125.162, 108.138.125.187 }
+table <d1lxz4vuik53pc.cloudfront.net> { 18.239.176.25, 18.239.176.57, 18.239.176.108, 18.239.176.129 }
+table <d39x00gckxu2jb.cloudfront.net> { 18.239.176.169, 18.239.176.196, 18.239.176.200, 18.239.176.225 }
+table <docs.google.com> { 142.250.80.46 }
+table <www.obdev.at> { 167.235.211.211 }
+table <sw-update.obdev.at> { 167.235.211.213 }
+table <www.geeksforgeeks.org> { 18.164.124.78, 18.164.124.35, 18.164.124.46, 18.164.124.56 }
+table <www.docker.com> { 141.193.213.20, 141.193.213.21 }
+table <hub.docker.com> { 44.219.3.189, 3.224.227.198, 44.193.181.103 }
+table <docs.docker.com> { 108.138.128.112, 108.138.128.21, 108.138.128.29, 108.138.128.74 }
+table <registry-1.docker.io> { 54.196.99.49, 3.219.239.5, 34.226.69.105 }
+table <www.okta.com> { 104.18.212.105, 104.18.211.105 }
+table <developer.okta.co> { 3.33.139.32 }
+table <login.okta.com> { 18.173.219.121, 18.173.219.23, 18.173.219.82, 18.173.219.112 }
+table <trial-7557751.okta.com> { 76.223.94.4, 13.248.212.212 }
+table <trial-7557751-admin.okta.com> { 76.223.94.4, 13.248.212.212 }
+table <ok14static.oktacdn.com> { 13.35.93.66, 13.35.93.102, 13.35.93.29, 13.35.93.59 }
+table <ok3static.oktacdn.com> { 65.8.19.44, 65.8.19.59, 65.8.19.66, 65.8.19.28 }
+table <oinmanager.okta.com> { 3.233.93.236, 18.213.191.122, 54.87.109.113 }
+table <system-admin.okta.com> { 99.83.144.240, 75.2.8.118 }
+table <data.pendo.io> { 34.107.204.85 }
+table <www.reddit.com> { 151.101.1.140, 151.101.65.140, 151.101.129.140, 151.101.193.140 }
+table <www.redditstatic.com> { 151.101.129.140, 151.101.193.140, 151.101.1.140, 151.101.65.140 }
+table <www.redditstatic.com> { 151.101.65.140, 151.101.1.140, 151.101.193.140, 151.101.129.140 }
+table <m.media-amazon.com> { 18.161.24.171 }
+table <images-na.ssl-images-amazon.com> { 18.239.159.227 }
+table <en.wikipedia.org> { 208.80.154.224 }
+table <www.overleaf.com> { 34.120.52.64 }
+table <resumeworded.com> { 104.26.2.28, 104.26.3.28, 172.67.74.248 }
+table <www.topresume.com> { 65.8.19.13, 65.8.19.15, 65.8.19.48, 65.8.19.53 }
+table <customers.topresume.com> { 52.200.238.128, 3.213.52.188, 3.230.238.193, 3.232.130.58, 18.209.140.248, 44.196.154.46 }
+table <content.topresume.com> { 18.238.80.92, 18.238.80.93, 18.238.80.41, 18.238.80.46 }
+table <topresume.portal.careers> { 18.213.74.173, 18.209.133.42 }
+table <d3ckaa7n9upjlc.cloudfront.net> { 18.239.166.16, 18.239.166.78, 18.239.166.188, 18.239.166.190 }
+table <www.cisco.com> { 23.32.144.111 }
+table <software.cisco.com> { 104.67.11.141 }
+table <id.cisco.com> { 184.25.117.152, 184.25.117.226 }
+table <download-ssc.cisco.com> { 23.44.209.199 }
+table <homenetworkguy.com> { 172.67.73.58, 104.26.0.51, 104.26.1.51 }
+table <help.okta.com> { 18.173.219.67, 18.173.219.79, 18.173.219.119, 18.173.219.123 }
+table <developers.google.com> { 142.251.40.142 }
+table <docs.opnsense.org> { 178.162.131.118 }
+table <forum.opnsense.org> { 178.162.131.118 }
+table <gcr.io> { 173.194.68.82 }
+table <www.recaptcha.net> { 142.251.40.227 }
+table <metana.io> { 172.67.71.169, 104.26.0.159, 104.26.1.159 }
+table <www.coursera.org> { 65.8.19.50, 65.8.19.76, 65.8.19.109, 65.8.19.40 }
+table <845coursera.boost.ai> { 76.223.57.223, 13.248.171.59 }
+table <g-us-east-1.gp.coursera.org> { 3.212.141.174, 44.194.104.209 }
+table <alias-coursera-rhyme> { 52.217.120.250, 54.231.232.226, 16.182.41.74, 52.216.57.66, 52.216.88.134, 52.216.244.56, 52.217.88.80, 52.217.95.130 }
+table <alias-coursera-skillspace> { 18.161.34.74, 18.161.34.103, 18.161.34.118, 18.161.34.38 }
+table <d3njjcbhbojbot.cloudfront.net> { 18.164.116.65, 18.164.116.87, 18.164.116.104, 18.164.116.17 }
+table <d3c33hcgiwev3.cloudfront.net> { 54.230.244.38, 54.230.244.133, 54.230.244.134, 54.230.244.213 }
+table <sockjs-mt1.pusher.com> { 52.55.106.120, 34.201.239.212, 44.217.82.191 }
+table <api2.transloadit.com> { 3.95.74.143, 3.95.88.141, 18.235.240.52, 34.195.85.156, 3.94.12.70, 3.94.234.75 }
+table <www.khanacademy.org> { 151.101.129.42, 151.101.193.42, 151.101.1.42, 151.101.65.42 }
+table <www.virtualbox.org> { 104.69.60.227 }
+table <leetcode.com> { 172.67.6.3, 104.22.26.181, 104.22.27.181 }
+table <assets.leetcode.com> { 104.22.27.181, 172.67.6.3, 104.22.26.181 }
+table <ff-proxy.leetcode.com> { 104.22.26.181, 104.22.27.181, 172.67.6.3 }
+table <kaze.leetcode.com> { 172.67.6.3, 104.22.26.181, 104.22.27.181 }
+table <static-lccn.leetcode.com> { 104.22.26.181, 104.22.27.181, 172.67.6.3 }
+table <s3-lc-upload.s3.amazonaws.com> { 52.219.121.73, 52.219.194.65, 52.219.194.105, 52.219.216.1, 52.219.113.26, 52.219.113.34, 52.219.113.129, 52.219.121.33 }
+table <player.vimeo.com> { 162.159.128.61, 162.159.138.60 }
+table <extend.vimeocdn.com> { 199.232.38.109 }
+table <f.vimeocdn.com> { 151.101.118.109 }
+table <i.vimeocdn.com> { 151.101.64.217, 151.101.128.217, 151.101.192.217, 151.101.0.217 }
+table <fresnel.vimeocdn.com> { 34.120.202.204 }
+table <skyfire.vimeocdn.com> { 151.101.64.217, 151.101.128.217, 151.101.192.217, 151.101.0.217 }
+table <www.netacad.com> { 104.69.61.227 }
+table <auth.netacad.com> { 52.71.96.97, 54.87.42.237 }
+table <skillsforall.com> { 65.8.19.55, 65.8.19.107, 65.8.19.7, 65.8.19.8 }
+table <api.socialgoodplatform.com> { 54.172.201.59, 54.172.234.153, 52.54.253.37 }
+table <players.brightcove.net> { 23.41.169.34 }
+table <dj5ag5n6bpdxo.cloudfront.net> { 65.8.191.176, 65.8.191.194, 65.8.191.13, 65.8.191.93 }
+table <alias-packettracer-dl> { 52.217.101.204, 54.231.137.41, 3.5.3.11, 16.182.71.105, 52.216.27.84, 52.216.28.132, 52.216.216.41, 52.217.91.201 }
+table <webexapis.com> { 170.72.245.169, 170.72.245.220, 170.72.245.124 }
+table <pyarmor.readthedocs.io> { 104.16.253.120, 104.16.254.120 }
+table <order.mycommerce.com> { 45.60.103.126 }
+table <fedoraproject.org> { 152.19.134.198, 8.43.85.67, 8.43.85.73, 34.221.3.152, 38.145.60.20, 38.145.60.21, 67.219.144.68, 140.211.169.196, 152.19.134.142 }
+table <docs.fedoraproject.org> { 18.133.140.134, 18.159.254.57, 18.192.40.85, 38.145.60.20, 38.145.60.21, 85.236.55.6, 152.19.134.142, 152.19.134.198, 185.141.165.254 }
+table <download.fedoraproject.org> { 85.236.55.6, 152.19.134.142, 152.19.134.198, 185.141.165.254, 18.133.140.134, 18.159.254.57, 18.192.40.85, 38.145.60.20, 38.145.60.21 }
+table <discussion.fedoraproject.org> { 184.105.99.43 }
+table <sea1.discourse-cdn.com> { 65.8.19.31, 65.8.19.78, 65.8.19.109, 65.8.19.110 }
+table <www.flatcar.org> { 104.21.66.122, 172.67.159.230 }
+table <flatcar-linux.org> { 172.67.163.250, 104.21.91.4 }
+table <alias-flatcar-release> { 136.144.58.113 }
+table <routersecurity.org> { 216.92.136.14 }
+table <www.linkedin.com> { 13.107.42.14 }
+table <platform.linkedin.com> { 23.200.3.77, 23.200.3.68 }
+table <static.licdn.com> { 23.200.3.68, 23.200.3.77 }
+table <static-exp1.licdn.com> { 23.200.3.77, 23.200.3.68 }
+table <linkedin-api.arkoselabs.com> { 13.35.77.103, 13.35.77.116, 13.35.77.17, 13.35.77.89 }
+table <rpmfusion.org> { 212.129.31.198 }
+table <pimylifeup.com> { 172.67.73.232, 104.26.4.41, 104.26.5.41 }
+table <pve.proxmox.com> { 79.133.36.252 }
+table <mirrors.apqa.cn> { 104.21.43.231, 172.67.186.225 }
+table <vmware.com> { 208.91.0.132 }
+table <blogs.vmware.com> { 23.32.144.34 }
+table <docs.vmware.com> { 23.32.144.34 }
+table <customerconnect.vmware.com> { 23.32.144.34 }
+table <broadcom.com> { 54.68.22.26, 50.112.202.115, 52.13.171.212 }
+table <support.broadcom.com> { 162.159.140.167, 172.66.0.165 }
+table <access.broadcom.com> { 172.66.0.165, 162.159.140.167 }
+table <community.broadcom.com> { 34.225.242.50, 34.193.4.92 }
+table <login.broadcom.com> { 35.71.190.245, 52.223.7.86 }
+table <d3axvq2tzp21o5.cloudfront.net> { 18.164.93.31, 18.164.93.33, 18.164.93.34, 18.164.93.74 }
+table <groups.google.com> { 173.194.68.138, 173.194.68.139, 173.194.68.100, 173.194.68.101, 173.194.68.102, 173.194.68.113 }
+table <linuxboards.com> { 172.67.211.144, 104.21.67.23 }
+table <copr.fedorainfracloud.org> { 3.225.109.36 }
+table <forums.fedoraforum.org> { 135.148.120.73 }
+table <mirror.xenyth.net> { 170.39.230.155 }
+
+# Filtering
+antispoof for en0
+block all
+
+# DNS
+pass out quick on en0 inet proto udp from $my_ip to 192.168.63.253 port 53
+
+# vmware
+pass out quick on en0 inet proto tcp from $my_ip to <vmware.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <blogs.vmware.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <docs.vmware.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <customerconnect.vmware.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <broadcom.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <support.broadcom.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <access.broadcom.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <login.broadcom.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <d3axvq2tzp21o5.cloudfront.net> port 443
+
+# Linkedin
+pass out quick on en0 inet proto tcp from $my_ip to <www.linkedin.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <platform.linkedin.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <static.licdn.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <static-exp1.licdn.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <linkedin-api.arkoselabs.com> port 443
+
+# Linux projects
+pass out quick on en0 inet proto tcp from $my_ip to <www.flatcar.org> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <fedoraproject.org> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <docs.fedoraproject.org> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <download.fedoraproject.org> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <discussion.fedoraproject.org> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <sea1.discourse-cdn.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <flatcar-linux.org> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-flatcar-release> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <pve.proxmox.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <linuxboards.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <copr.fedorainfracloud.org> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <forums.fedoraforum.org> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <mirror.xenyth.net> port 443
+
+# Pyarmor
+pass out quick on en0 inet proto tcp from $my_ip to <pyarmor.readthedocs.io> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <order.mycommerce.com> port 443
+
+# netacad
+pass out quick on en0 inet proto tcp from $my_ip to <www.netacad.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <auth.netacad.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <skillsforall.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <api.socialgoodplatform.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <players.brightcove.net> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <dj5ag5n6bpdxo.cloudfront.net> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-packettracer-dl> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <webexapis.com> port 443
+
+# leetcode
+pass out quick on en0 inet proto tcp from $my_ip to <leetcode.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <assets.leetcode.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <ff-proxy.leetcode.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <kaze.leetcode.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <static-lccn.leetcode.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <s3-lc-upload.s3.amazonaws.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <player.vimeo.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <extend.vimeocdn.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <f.vimeocdn.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <i.vimeocdn.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <fresnel.vimeocdn.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <skyfire.vimeocdn.com> port 443
+
+# coursera
+pass out quick on en0 inet proto tcp from $my_ip to <www.coursera.org> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <d3njjcbhbojbot.cloudfront.net> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <d3c33hcgiwev3.cloudfront.net> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <sockjs-mt1.pusher.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <api2.transloadit.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <projects.coursera.org> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <845coursera.boost.ai> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <g-us-east-1.gp.coursera.org> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-coursera-rhyme> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-coursera-skillspace> port 443
+
+# misc
+pass out quick on en0 inet proto tcp from $my_ip to <homenetworkguy.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <metana.io> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <www.khanacademy.org> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <docs.opnsense.org> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <forum.opnsense.org> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <www.virtualbox.org> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <storage.googleapis.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <routersecurity.org> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <rpmfusion.org> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <pimylifeup.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <mirrors.apqa.cn> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <groups.google.com> port 443
+
+# cisco
+pass out quick on en0 inet proto tcp from $my_ip to <www.cisco.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <software.cisco.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <id.cisco.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <download-ssc.cisco.com> port 443
+
+# wikipedia
+pass out quick on en0 inet proto tcp from $my_ip to <en.wikipedia.org> port 443
+
+# resume worded
+pass out quick on en0 inet proto tcp from $my_ip to <resumeworded.com> port 443
+
+# top resume
+pass out quick on en0 inet proto tcp from $my_ip to <www.topresume.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <customers.topresume.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <content.topresume.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <topresume.portal.careers> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <d3ckaa7n9upjlc.cloudfront.net> port 443
+
+# reddit
+pass out quick on en0 inet proto tcp from $my_ip to <www.reddit.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <www.redditstatic.com> port 443
+
+# okta
+pass out quick on en0 inet proto tcp from $my_ip to <www.okta.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <developer.okta.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <login.okta.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <trial-7557751.okta.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <trial-7557751-admin.okta.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <ok14static.oktacdn.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <oinmanager.okta.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <data.pendo.io> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <ok3static.oktacdn.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <system-admin.okta.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <help.okta.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <www.recaptcha.net> port 443
+
+# gemini
+pass out quick on en0 inet proto tcp from $my_ip to <gemini.google.com> port 443
+
+# docker
+pass out quick on en0 inet proto tcp from $my_ip to <www.docker.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <hub.docker.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <registry-1.docker.io> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <cloudflare.docker.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <gcr.io> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <docs.docker.com> port 443
+
+# geeksforgeeks
+pass out quick on en0 inet proto tcp from $my_ip to <www.geeksforgeeks.org> port 443
+
+# chrome enterprise
+pass out quick on en0 inet proto tcp from $my_ip to <chromeenterprise.google> port 443
+
+# google search
+pass out quick on en0 inet proto tcp from $my_ip to <www.google.com> port 443
+
+# gmail
+pass out quick on en0 inet proto tcp from $my_ip to <mail.google.com> port 443
+
+# google docs
+pass out quick on en0 inet proto tcp from $my_ip to <docs.google.com> port 443
+
+# google accounts
+pass out quick on en0 inet proto tcp from $my_ip to <accounts.google.ca> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <accounts.google.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <myaccount.google.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <accounts.youtube.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <apis.google.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <lh3.google.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <ogs.google.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <play.google.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <lh3.googleusercontent.com> port 443
+
+# google gstatic
+pass out quick on en0 inet proto tcp from $my_ip to <www.gstatic.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <ssl.gstatic.com> port 443
+
+# google admin
+pass out quick on en0 inet proto tcp from $my_ip to <admin.google.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <workspace.google.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <developers.google.com> port 443
+
+# youtube
+pass out quick on en0 inet proto tcp from $my_ip to <www.youtube.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <i.ytimg.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-ab5l6ndr> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr4-t0a7lnee> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr5-t0a7lnee> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-4g5edn6r> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-tt1elnel> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr5-ab5l6ndr> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr1--ab5sznzy> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr4-4g5e6nss> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr1-5hnekn7s> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr1-5hne6nsr> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr2-4g5edndk> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr4-p5qs7nsk> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr2-ab5l6nkd> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr1-ab5sznze> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr5-5hne6n6e> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr1-5hneknes> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr2-5hnekn7z> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr2-5hne6nz6> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr1-5hne6nzd> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr5-t0a7lnee> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr3-p5qddn7d> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr5-ab5sznzd> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr4-ab5l6nrl> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr4-p5qlsndz> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr2-ab5l6nrl> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr1-ab5sznzk> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr1-ab5sznzz> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr3-ab5l6nr6> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr3-p5qlsn7s> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr1-p5qddn7r> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr4-ab5sznzr> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr3-ab5l6nkd> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr2-p5qlsn6l> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr4-ab5sznzk> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr4-p5qddn76> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr5-p5qddn7d> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr2-ab5l6nrz> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr5-ab5l6nr6> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr3-t0a7lnee> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr4-ab5l6nrr> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr2-ab5sznzz> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr3-ab5l6ndy> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <alias-gvid-rr1-p5qddn7k> port 443
+
+# cloudflare challenges
+pass out quick on en0 inet proto tcp from $my_ip to <challenges.cloudflare.com> port 443
+
+# chatgpt
+pass out quick on en0 inet proto tcp from $my_ip to <chatgpt.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <chat.openai.com>  port 443
+pass out quick on en0 inet proto tcp from $my_ip to <tcr9i.chat.openai.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <www.oaistatic.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <cdn.oaistatic.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <auth.openai.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <auth0.openai.com> port 443
+
+# github
+pass out quick on en0 inet proto tcp from $my_ip to <www.github.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <github.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <github.githubassets.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <api.github.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <objects.githubusercontent.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <raw.githubusercontent.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <raw.github.com> port 443
+
+# amazon
+pass out quick on en0 inet proto tcp from $my_ip to <www.amazon.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <d161vkckch5xxj.cloudfront.net> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <m.media-amazon.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <images-na.ssl-images-amazon.com> port 443
+pass out quick on en0 inet proto tcp from $my_ip to <amzn.to> port 443

@@ -1,0 +1,21 @@
+{
+  "ignition": { "version": "2.2.0" },
+  "storage": {
+    "filesystems": [{
+      "mount": {
+        "device": "/dev/disk/by-label/ROOT",
+        "format": "btrfs",
+        "wipeFilesystem": true,
+        "label": "ROOT"
+      }
+    }]
+  },
+  "passwd": {
+    "users": [
+      {
+        "name": "user",
+        "passwordHash": "$1$Pj4i.bA0$s11LeBg0MfoYB00NPhtyh0"
+      }
+    ]
+  }
+}

@@ -9,3 +9,17 @@ services:
       - type: bind
         source: /Users/atom/Developer/MyVPN/Firewall/pf.rules
         target: /usr/src/app/pf.rules
+#     networks:
+#       macvlan_network:
+#         ipv4_address: 192.168.4.2
+
+# networks:
+#   macvlan_network:
+#     name: macvlan_network
+#     driver: macvlan
+#     driver_opts:
+#       parent: eth0
+#     ipam:
+#       config:
+#         - subnet: 192.168.4.0/30
+#           gateway: 192.168.4.1

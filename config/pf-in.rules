@@ -1,0 +1,16 @@
+# Options
+set block-policy drop
+set fingerprints "/etc/pf.os"
+set state-policy if-bound
+
+# Normalization
+scrub all fragment reassemble no-df
+
+# Queueing (if any)
+
+# Translation
+nat on en0 from any to any -> (en0)
+
+# Filtering
+antispoof for en0
+block in
