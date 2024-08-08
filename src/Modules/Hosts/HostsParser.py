@@ -1,4 +1,3 @@
-from ipaddress import ip_address, IPv4Address
 from typing_extensions import List, Optional
 from Hosts import Host, Hosts
 
@@ -46,11 +45,4 @@ class HostsParser:
         return lines
 
     def _is_valid_remote_host(self, terms: List[str]) -> bool:
-        return len(terms) == 2 and self._is_valid_ipv4_address(terms[0]) and terms[0] != '127.0.0.1' and terms[0] != '255.255.255.255'
-
-    def _is_valid_ipv4_address(self, address: str) -> bool:
-        try:
-            ip = ip_address(address)
-            return isinstance(ip, IPv4Address)
-        except ValueError:
-            return False
+        return len(terms) == 2 and terms[0] != '127.0.0.1' and terms[0] != '255.255.255.255'

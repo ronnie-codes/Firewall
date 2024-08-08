@@ -13,6 +13,7 @@ WORKDIR /usr/src/app
 COPY scripts/iptables_legacy.sh .
 COPY src/setup.py .
 COPY src/main.py .
+COPY src/Modules/Shared/CommandRunner.py .
 COPY src/Modules/Hosts/Hosts.py .
 COPY src/Modules/Hosts/HostsPinger.py .
 COPY src/Modules/Hosts/HostsAnalyzer.py .
