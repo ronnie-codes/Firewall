@@ -1,1 +1,1 @@
-docker build -t python_app .
+podman build -t python_app .

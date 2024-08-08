@@ -4,8 +4,8 @@ from Cython.Build import cythonize
 
 ext_modules = [
     Extension(
-        "PacketFilter",
-        ["PacketFilter.py"],
+        "HostsService",
+        ["HostsService.py"],
         extra_compile_args=["-fPIC", "-Ofast", "-march=native", "-ffast-math"]
     )
 ]

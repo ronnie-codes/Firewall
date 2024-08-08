@@ -1,8 +1,1 @@
-docker network rm ipvlan_network
-
-docker network create -d ipvlan \
-    --subnet=192.168.63.0/24 \
-    --gateway=192.168.63.1 \
-    -o ipvlan_flag=private \
-    -o parent=eth0 \
-    ipvlan_network
+podman network create -d ipvlan --subnet 172.16.1.0/30 --gateway 172.16.1.1 -o parent=wlo1.100 vlan100

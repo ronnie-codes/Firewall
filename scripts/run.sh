@@ -1,7 +1,7 @@
-docker run -d \
-    --name python_app \
-    --cap-add=NET_ADMIN \
-    --mount type=bind,source=/mnt/shared/pf.rules,target=/usr/src/app/pf.rules \
-    --network ipvlan_network \
-    --ip 192.168.68.87 \
-    python_app
+podman run -d \
+	       --privileged \
+	       --env IPTABLES_BACKEND=legacy \
+	       --mount type=bind,source=/var/home/rvega/Developer/Firewall/config/hosts.txt,target=/usr/src/app/hosts.txt \
+	       --dns 192.168.152.216 \
+	       --name python_app \
+	       python_app

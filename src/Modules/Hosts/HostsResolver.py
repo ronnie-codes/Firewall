@@ -15,7 +15,7 @@ class HostsResolver:
             answers = self.my_resolver.resolve(hostname, 'A')
             addresses: List[str] = [answer.address for answer in answers]
             print(hostname, addresses)
-            return Host(hostname, addresses)
+            return Host(hostname, [addresses[0]] if addresses else [])
         except Exception as e:
             print('error resolving...', e)
             return None

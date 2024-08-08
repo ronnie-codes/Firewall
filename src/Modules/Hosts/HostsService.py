@@ -6,11 +6,11 @@ from Hosts import Hosts
 class HostsService:
     """Provides API for managing host files."""
 
-    def __init__(self, manager=HostsManager(), my_resolver=HostsResolver()):
+    def __init__(self, manager=HostsManager(), resolver=HostsResolver()):
         """Initializes the service."""
         self.manager = manager
-        self.my_resolver = my_resolver
-
+        self.resolver = resolver
+    
     def sync_hosts(self) -> Hosts:
         """Updates IP addresses in a hosts file and returns a change set."""
         my_hosts = self.manager.read()
@@ -23,7 +23,7 @@ class HostsService:
         with ThreadPoolExecutor() as executor:
             # Submit resolve tasks for each remote host
             future_to_index = {executor.submit(
-                self.my_resolver.resolve, host.name): index for index, host in remote_hosts}
+                self.resolver.resolve, host.name): index for index, host in remote_hosts}
 
             # Process completed futures
             for future in as_completed(future_to_index):

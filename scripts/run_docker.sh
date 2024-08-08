@@ -2,28 +2,31 @@
 
 container_name="python_app"
 
+DNS_IP=$(ip route | awk '/default/ {print $3}')
+
 while true; do
     # Remove the previous container if it exists
-    existing_container=$(docker ps -aqf "name=${container_name}")
+    existing_container=$(podman ps -aqf "name=${container_name}")
     if [ -n "$existing_container" ]; then
-        docker rm -f "$existing_container"
+        podman rm -f "$existing_container"
     fi
 
-    docker run -d \
-            --name $container_name \
-            --cap-add=NET_ADMIN \
-            --mount type=bind,source=/Users/atom/Developer/MyVPN/Firewall/config/pf.rules,target=/usr/src/app/pf.rules \
-            --ip 192.168.63.169 \
-            --network ipvlan_network \
-        $container_name
+    podman run -d \
+	    --privileged \
+	    --env IPTABLES_BACKEND=legacy \
+ 	    --mount type=bind,source=/var/home/rvega/Developer/Firewall/config/hosts.txt,target=/usr/src/app/hosts.txt \
+            --dns $DNS_IP  \
+	    --name $container_name \
+	    $container_name
 
     # Start Docker service
-    docker logs -f $container_name  # Stream logs for visibility
-    docker wait $container_name     # Wait for container to exit
+    podman logs -f $container_name  # Stream logs for visibility
+    podman wait $container_name     # Wait for container to exit
     exit_code=$?                    # Get container exit code
 
     if [[ $exit_code -eq 0 ]]; then
         echo "Python script in Docker container completed successfully."
+	bash sync_hosts.sh
     else
         echo "Python script in Docker container exited with error code $exit_code."
     fi

@@ -9,7 +9,7 @@ iptables -t nat -F -v
 iptables -t nat -X -v
 
 # nat
-iptables -t nat -A PREROUTING -p udp --dport 53 -j DNAT --to-destination 192.168.63.169:53 # I'm not even sure that this completely makes sense
+iptables -t nat -A PREROUTING -p udp --dport 53 -j DNAT --to-destination 192.168.63.169:53 
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 
 # Default policy: DROP everything
