@@ -20,4 +20,3 @@ close_dhcp() {
 # Main script execution
 connect_wifi
 close_dhcp
-

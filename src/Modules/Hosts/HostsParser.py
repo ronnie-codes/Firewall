@@ -1,4 +1,4 @@
-from typing_extensions import List, Optional
+from typing import List, Optional
 from Hosts import Host, Hosts
 
 class HostsParser:

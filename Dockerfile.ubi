@@ -1,0 +1,73 @@
+FROM registry.access.redhat.com/ubi8/ubi
+
+# Configure subscription-manager
+#RUN subscription-manager register --username ronny_vega@icloud.com --password Temppassword123!
+
+# Install required packages and dependencies
+RUN dnf install -y \
+    python39 \
+    python39-pip \
+    python39-devel \
+    procps-ng \
+    iproute \
+    iputils \
+    net-tools \
+    make \
+    glibc-devel \
+    tar
+    && dnf clean all
+
+# Create a non-root user
+# RUN adduser -m -u 1001 appuser
+
+# Create non-root user directory
+WORKDIR /usr/src/app
+# COPY --chown=appuser:appuser src/* .
+
+# Copy source files and requirements
+COPY bin/traceroute-2.1.5.tar.gz .
+COPY config/nsswitch.conf .
+COPY src/setup.py .
+COPY src/main.py .
+COPY src/Modules/Shared/CommandRunner.py .
+COPY src/Modules/Shared/NetworkAnalyzer.py .
+COPY src/Modules/Hosts/Hosts.py .
+COPY src/Modules/Hosts/HostsAnalyzer.py .
+COPY src/Modules/Hosts/HostsResolver.py .
+COPY src/Modules/Hosts/HostsParser.py .
+COPY src/Modules/Hosts/HostsManager.py .
+COPY src/Modules/Hosts/HostsService.py .
+COPY src/requirements.txt .
+
+# Install Python dependencies
+RUN pip3.9 install --upgrade -r requirements.txt
+
+# Add to PATH
+ENV PATH="/root/.local/bin:${PATH}"
+
+# Obfuscate
+RUN pyarmor gen --enable-jit --assert-call --private *.py
+
+# Extract the tarball
+RUN tar -xzf traceroute-2.1.5.tar.gz
+
+# Build and install traceroute
+WORKDIR traceroute-2.1.0
+RUN make
+
+# Cleanup
+WORKDIR /
+RUN rm -rf traceroute-2.1.5 traceroute-2.1.5.tar.gz
+
+# Verify the installation
+CMD ["./traceroute", "--version"]
+
+# RUN mv nsswitch.conf /etc/nsswitch.conf
+
+# Switch to the non-root user 
+# USER appuser
+
+# Load tables and run (ensure iptables runs with sufficient privileges)
+CMD ["bash", "-c", "python3 dist/main.py"]
+
+# RNr8gfm-NQR42z7AppHXAhy*ZpKN2BskN2jUFCXBBD4

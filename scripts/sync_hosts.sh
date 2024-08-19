@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo cat ../config/hosts.txt | sudo tee /etc/hosts
+cat ../config/hosts.txt | tee /etc/hosts

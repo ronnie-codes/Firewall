@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing_extensions import List, Tuple, Any
+from typing import List, Tuple, Any
 
 @dataclass
 class Host:

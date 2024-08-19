@@ -1,4 +1,4 @@
 #!/bin/bash
 
-systemctl stop firewalld
-systemctl start firewalld
+#systemctl stop firewalld
+#systemctl start firewalld

@@ -3,8 +3,25 @@
 # Get the private IP address
 MY_IP=$(ip addr show | grep 'inet ' | grep -v '127.0.0.1' | awk '{print $2}' | cut -d/ -f1 | head -n 1)
 
-# Get dhcp mac address
+# Get dhcp addresses
+
+# Loop until the result of 'ip neigh' is non-empty
+while true; do
+    # Capture the output of 'ip neigh'
+    ip_neigh_output=$(ip neigh)
+
+    # Check if the output is non-empty
+    if [[ -n "$ip_neigh_output" ]]; then
+        echo "ARP table is populated"
+        break
+    fi
+
+    # Wait for a short period before checking again
+    sleep 1
+done
+
 DHCP_MAC=$(ip neigh | awk '{print $5}')
+DHCP_IP=$(ip neigh | awk '{print $1}')
 
 declare -a myipset
 
@@ -23,13 +40,18 @@ done < ../config/hosts.txt
 myipset=($(printf "%s\n" "${myipset[@]}" | sort -u))
 
 # clear direct rules
-./clear_direct_rules.sh
+firewall-cmd --permanent --direct --remove-rules ipv4 nat POSTROUTING
+firewall-cmd --permanent --direct --remove-rules ipv4 nat PREROUTING
+firewall-cmd --permanent --direct --remove-rules ipv4 filter INPUT
+firewall-cmd --permanent --direct --remove-rules ipv4 filter OUTPUT
+firewall-cmd --permanent --direct --remove-rules ipv4 filter FORWARD
+firewall-cmd --permanent --direct --remove-rules ipv6 filter INPUT
+firewall-cmd --permanent --direct --remove-rules ipv6 filter OUTPUT
+firewall-cmd --permanent --direct --remove-rules ipv6 filter FORWARD
 
 # clear ipset
-./clear_ipset.sh
-
-firewall-cmd --lockdown-off
-firewall-cmd --reload
+firewall-cmd --permanent --delete-ipset=white-list
+firewall-cmd --permanent --new-ipset=white-list --type=hash:ip
 
 # IPv6 Drop Rules
 firewall-cmd --permanent --direct --add-rule ipv6 filter INPUT 0 -j DROP
@@ -38,8 +60,8 @@ firewall-cmd --permanent --direct --add-rule ipv6 filter FORWARD 0 -j DROP
 
 # NAT Rules
 firewall-cmd --permanent --direct --add-rule ipv4 nat POSTROUTING 0 -o wlo1 -j MASQUERADE
-firewall-cmd --permanent --direct --add-rule ipv4 nat PREROUTING 0 -p tcp --dport 0:65535 -j DNAT --to-destination $MY_IP:60400-60420
-firewall-cmd --permanent --direct --add-rule ipv4 nat PREROUTING 0 -p udp --dport 0:65535 -j DNAT --to-destination 192.168.1.100:65535
+firewall-cmd --permanent --direct --add-rule ipv4 nat PREROUTING 0 -p tcp -j DNAT --to-destination $MY_IP:60400-60420
+firewall-cmd --permanent --direct --add-rule ipv4 nat PREROUTING 0 -p udp -j DNAT --to-destination 0.0.0.0:65535
 
 # Fragment Rules
 firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT 0 -m state --state INVALID -j DROP
@@ -47,12 +69,11 @@ firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 0 -m state --sta
 firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -m state --state INVALID -j DROP
 
 # Connection Limits
-firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT 0 -p tcp -m connlimit --connlimit-above 20 -j DROP
-firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 0 -p tcp -m connlimit --connlimit-above 20 -j DROP
-firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -p tcp -m connlimit --connlimit-above 20 -j DROP
 firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT 0 -p udp -m connlimit --connlimit-above 0 -j DROP
 firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 0 -p udp -m connlimit --connlimit-above 0 -j DROP
-firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -p udp -m connlimit --connlimit-above 0 -j DROP
+firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT 0 -p tcp -m connlimit --connlimit-above 16 -j DROP
+firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -p tcp -m connlimit --connlimit-above 16 -j DROP
+firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 0 -p tcp -m connlimit --connlimit-above 16 -j DROP
 
 # ipset entries
 cmd="firewall-cmd --permanent --ipset=white-list"
@@ -66,8 +87,7 @@ eval $cmd
 
 # IP Filter Rules
 firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -i wlo1 -o wlo1 -j DROP
-firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -p tcp -m mac --mac-source $DHCP_MAC -m set --match-set white-list src --sport 443 -d $MY_IP --dport 60400:60420 -m state --state ESTABLISHED -j ACCEPT
-firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -p tcp -m set --match-set white-list dst -s $MY_IP --sport 60400:60420 --dport 443 -m state --state ESTABLISHED,NEW -j ACCEPT
+firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -p tcp -j ACCEPT
 firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT 0 -p tcp -m mac --mac-source $DHCP_MAC -m set --match-set white-list src --sport 443 -d $MY_IP --dport 60400:60420 -m state --state ESTABLISHED -j ACCEPT
 firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 0 -p tcp -s $MY_IP --sport 60400:60420 -m set --match-set white-list dst --dport 443 -m state --state ESTABLISHED,NEW -j ACCEPT
 
@@ -75,8 +95,6 @@ firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 0 -p tcp -s $MY_
 firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT 0 -j DROP
 firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 0 -j DROP
 firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -j DROP
-
-firewall-cmd --lockdown-on
 
 # Reload Firewalld to apply changes
 firewall-cmd --complete-reload

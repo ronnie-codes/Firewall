@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from enum import Enum
-from typing_extensions import List, Tuple, Dict, Any, TypeAlias
+from typing import List, Tuple, Dict, Any, TypeAlias
 # TODO: from HostsResolver import HostsResolver
 
 @dataclass

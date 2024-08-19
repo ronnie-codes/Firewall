@@ -1,12 +1,14 @@
 from Hosts import Host
-from typing_extensions import List, Optional
+from HostsAnalyzer import HostsAnalyzer
+from typing import List, Optional
 from CommandRunner import CommandRunner
 from ipaddress import ip_address, IPv4Address
 
 class HostsResolver:
     """Resolves a hostname to a host model using an upstream dns resolver."""
 
-    def __init__(self, cmd_runner = CommandRunner()):
+    def __init__(self, analyzer: HostsAnalyzer = HostsAnalyzer(), cmd_runner = CommandRunner()):
+        self.analyzer = analyzer
         self.cmd_runner = cmd_runner
 
     def resolve(self, hostname: str) -> Optional[Host]:
@@ -15,7 +17,10 @@ class HostsResolver:
             output = self.cmd_runner.run(["nslookup", hostname])
             addresses = self._parse_nslookup_output(output)
             print(hostname, addresses)
-            return Host(hostname, [addresses[0]] if addresses else [])
+            if addresses:
+                return Host(hostname, [self.analyzer.find_closest_ip(addresses)] if len(addresses) > 1 else [addresses[0]])
+                #return Host(hostname, [addresses[0]] if addresses else [])
+            return Host(hostname, [])
         except Exception as e:
             print('error resolving...', e)
             return None
