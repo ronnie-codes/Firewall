@@ -4,10 +4,13 @@
 # Function to generate a random MAC address using openssl
 generate_random_mac() {
     # Generate the first octet with an even number in the first nibble to ensure a unicast MAC address
-    first_octet=$(printf '%02X' $(( ( $(openssl rand -hex 1 | head -c 1 | tr 'abcdef' 'ABCDEF') & 0xFE) | 0x02 )))
-    
+    # Read a single byte, remove spaces and newlines, then ensure it's interpreted as hexadecimal
+    first_octet_hex=$(od -An -N1 -t x1 /dev/urandom | tr -d ' \n')
+    first_octet=$(printf '%02X' $(( (0x$first_octet_hex & 0xFE) | 0x02 )))
+
     # Generate the remaining 5 octets
-    remaining_octets=$(openssl rand -hex 5 | sed 's/\(..\)/\1:/g; s/:$//')
+    # Read 5 bytes, convert to hex without spaces, then format as MAC address parts
+    remaining_octets=$(od -An -N5 -t x1 /dev/urandom | tr -d ' \n' | sed 's/\(..\)/\1:/g; s/:$//')
 
     # Combine the first octet with the remaining ones
     echo "${first_octet}:${remaining_octets}"

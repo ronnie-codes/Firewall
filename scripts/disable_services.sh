@@ -14,6 +14,7 @@ services=(
     rpcbind # Recommended by CIS
     rpm-ostree-countme.service # Potential to leak information about OS to someone monitoring network
     sshd # Not needed on desktop
+    cups
 )
 
 # Loop through the array and stop and disable each service/socket
