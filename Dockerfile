@@ -1,7 +1,10 @@
 FROM python:3.9.19-alpine3.20
 
 # Install dependencies
-RUN apk add build-base iptables iptables-legacy bash linux-headers
+RUN apk add build-base bash iptables iptables-legacy bash linux-headers
+
+# Set the ephemeral port range
+RUN sysctl -w net.ipv4.ip_local_port_range="60400 60420"
 
 # Create project directory and switch to it
 WORKDIR /usr/src/app
@@ -43,4 +46,3 @@ RUN chmod 777 ./traceroute
 # Load tables and run (ensure iptables runs with sufficient privileges)
 CMD ["bash", "-c", "python main.py"]
 
-mail.google.com

@@ -63,8 +63,8 @@ firewall-cmd --permanent --direct --add-rule ipv6 filter FORWARD 0 -j DROP
 
 # NAT Rules
 firewall-cmd --permanent --direct --add-rule ipv4 nat POSTROUTING 0 -o wlo1 -j MASQUERADE
-firewall-cmd --permanent --direct --add-rule ipv4 nat PREROUTING 0 -p tcp -j DNAT --to-destination $MY_IP:60400-60440
-firewall-cmd --permanent --direct --add-rule ipv4 nat PREROUTING 0 -p udp -j DNAT --to-destination $MY_IP:60400-60440
+firewall-cmd --permanent --direct --add-rule ipv4 nat PREROUTING 0 -p tcp -j DNAT --to-destination $MY_IP:60200-60420
+firewall-cmd --permanent --direct --add-rule ipv4 nat PREROUTING 0 -p udp -j DNAT --to-destination $MY_IP:60200-60420
 
 # Fragment Rules
 firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT 0 -m state --state INVALID -j DROP
@@ -72,12 +72,12 @@ firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 0 -m state --sta
 firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -m state --state INVALID -j DROP
 
 # Connection Limits
-firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT 0 -p udp -m connlimit --connlimit-above 40 -j DROP
-firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 0 -p udp -m connlimit --connlimit-above 40 -j DROP
-firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -p udp -m connlimit --connlimit-above 40 -j DROP
-firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT 0 -p tcp -m connlimit --connlimit-above 40 -j DROP
-firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -p tcp -m connlimit --connlimit-above 40 -j DROP
-firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 0 -p tcp -m connlimit --connlimit-above 40 -j DROP
+firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT 0 -p udp -m connlimit --connlimit-above 20 -j DROP
+firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 0 -p udp -m connlimit --connlimit-above 20 -j DROP
+firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -p udp -m connlimit --connlimit-above 20 -j DROP
+firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT 0 -p tcp -m connlimit --connlimit-above 20 -j DROP
+firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -p tcp -m connlimit --connlimit-above 20 -j DROP
+firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 0 -p tcp -m connlimit --connlimit-above 20 -j DROP
 
 # ipset entries
 #cmd="firewall-cmd --permanent --ipset=white-list"
@@ -92,10 +92,10 @@ firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 0 -p tcp -m conn
 # IP Filter Rules
 firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -p tcp -j ACCEPT
 firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -p udp -j ACCEPT
-firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT 0 -p udp -m mac --mac-source $DHCP_MAC -s $DHCP_IP --sport 53 -d $MY_IP --dport 60400:60440 -m state --state ESTABLISHED -j ACCEPT
-firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 0 -p udp -s $MY_IP --sport 60400:60440 --dport 53 -d $DHCP_IP -m state --state ESTABLISHED,NEW -j ACCEPT
-firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT 0 -p tcp -m mac --mac-source $DHCP_MAC --sport 443 -d $MY_IP --dport 60400:60440 -m state --state ESTABLISHED -j ACCEPT
-firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 0 -p tcp -s $MY_IP --sport 60400:60440 --dport 443 -m state --state ESTABLISHED,NEW -j ACCEPT
+firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT 0 -p udp -m mac --mac-source $DHCP_MAC -s $DHCP_IP --sport 53 -d $MY_IP --dport 60200:60420 -m state --state ESTABLISHED -j ACCEPT
+firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 0 -p udp -s $MY_IP --sport 60200:60420 --dport 53 -d $DHCP_IP -m state --state ESTABLISHED,NEW -j ACCEPT
+firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT 0 -p tcp -m mac --mac-source $DHCP_MAC --sport 443 -d $MY_IP --dport 60200:60420 -m state --state ESTABLISHED -j ACCEPT
+firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 0 -p tcp -s $MY_IP --sport 60200:60420 --dport 443 -m state --state ESTABLISHED,NEW -j ACCEPT
 
 # Default Drop Rules
 firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT 0 -j DROP
