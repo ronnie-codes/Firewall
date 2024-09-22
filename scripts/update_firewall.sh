@@ -72,12 +72,12 @@ firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 0 -m state --sta
 firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -m state --state INVALID -j DROP
 
 # Connection Limits
-firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT 0 -p udp -m connlimit --connlimit-above 20 -j DROP
-firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 0 -p udp -m connlimit --connlimit-above 20 -j DROP
-firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -p udp -m connlimit --connlimit-above 20 -j DROP
-firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT 0 -p tcp -m connlimit --connlimit-above 20 -j DROP
-firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -p tcp -m connlimit --connlimit-above 20 -j DROP
-firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 0 -p tcp -m connlimit --connlimit-above 20 -j DROP
+firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT 0 -p udp -m connlimit --connlimit-above 40 -j DROP
+firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 0 -p udp -m connlimit --connlimit-above 40 -j DROP
+firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -p udp -m connlimit --connlimit-above 40 -j DROP
+firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT 0 -p tcp -m connlimit --connlimit-above 40 -j DROP
+firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -p tcp -m connlimit --connlimit-above 40 -j DROP
+firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 0 -p tcp -m connlimit --connlimit-above 40 -j DROP
 
 # ipset entries
 #cmd="firewall-cmd --permanent --ipset=white-list"
