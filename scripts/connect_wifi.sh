@@ -2,7 +2,7 @@
 
 # Variables
 INTERFACE="wlo1"
-WPA_CONF="/etc/wpa_supplicant/wpa_supplicant.conf"
+WPA_CONF="/etc/wpa_supplicant/wpa_supplicant_enterprise.conf"
 DHCLIENT_LEASE_FILE="/var/lib/dhclient/dhclient.leases"
 
 # Function to connect to Wi-Fi
